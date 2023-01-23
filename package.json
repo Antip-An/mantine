@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@mantine/carousel": "^5.10.1",
     "@mantine/core": "^5.10.1",
     "@mantine/dates": "^5.10.1",
+    "@mantine/ds": "^5.10.1",
     "@mantine/form": "^5.10.1",
     "@mantine/hooks": "^5.10.1",
     "@mantine/notifications": "^5.10.1",

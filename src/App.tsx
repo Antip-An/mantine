@@ -1,10 +1,13 @@
-import { MantineProvider, Text } from '@mantine/core';
 import { Outlet } from "react-router-dom";
+import { Grid } from "@mantine/core";
+
+import Header from "./components/header";
 
 export default function App() {
   return (
-    
-    <Outlet />
-
+    <div>
+      <Header />
+      <Outlet />
+    </div>
   );
 }
