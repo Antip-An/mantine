@@ -1,6 +1,8 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
-import { createStyles, Paper, Text, Title, Button, useMantineTheme } from '@mantine/core';
+import { createStyles, Paper, Text, Title, Button, useMantineTheme, BackgroundImage } from '@mantine/core';
+
+import logo from '../assets/logo.png'
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -112,6 +114,9 @@ export default function Home() {
   ));
 
   return (
+    <BackgroundImage
+        src="logo"
+      >
     <Carousel
       slideSize="20%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
@@ -121,5 +126,8 @@ export default function Home() {
     >
       {slides}
     </Carousel>
+    
+    <a>eurhfoie</a>
+    </BackgroundImage>
   );
 }

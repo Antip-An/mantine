@@ -73,7 +73,7 @@ export default function Header() {
         src="../assets/1.png"
         radius="xs"
       >
-    <Navbar height={750} width={{ base: 80 }} p="md">
+    <Navbar height={780} width={{ base: 80 }} p="md">
       <Center>
         <MantineLogo type="mark" size={30} />
       </Center>
