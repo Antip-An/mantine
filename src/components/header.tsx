@@ -1,35 +1,53 @@
-import { useState } from 'react';
-import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Stack, BackgroundImage } from '@mantine/core';
+import { useState } from "react";
+import {
+  Navbar,
+  Center,
+  Tooltip,
+  UnstyledButton,
+  createStyles,
+  Stack,
+} from "@mantine/core";
 import {
   TablerIcon,
   IconHome2,
   IconSettings,
   IconLogout,
-} from '@tabler/icons';
-import { MantineLogo } from '@mantine/ds';
-
-import logo from '../assets/1.png'
+  IconSearch,
+  IconBook,
+  IconPencil,
+} from "@tabler/icons";
+import { MantineLogo } from "@mantine/ds";
 
 const useStyles = createStyles((theme) => ({
   link: {
     width: 50,
     height: 50,
     borderRadius: theme.radius.md,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[0]
+        : theme.colors.gray[9],
 
-    '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+    "&:hover": {
+      backgroundColor:
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[5]
+          : theme.colors.gray[0],
     },
   },
 
   active: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
-    //   backgroundImage: theme.fn.gradient({ from: 'red', to: 'orange', deg: 45 })
+    "&, &:hover": {
+      backgroundColor: theme.fn.variant({
+        variant: "light",
+        color: theme.primaryColor,
+      }).background,
+      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+        .color,
+      //   backgroundImage: theme.fn.gradient({ from: 'red', to: 'orange', deg: 45 })
     },
   },
 }));
@@ -45,7 +63,10 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" transitionDuration={0}>
-      <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
+      <UnstyledButton
+        onClick={onClick}
+        className={cx(classes.link, { [classes.active]: active })}
+      >
         <Icon stroke={1.5} />
       </UnstyledButton>
     </Tooltip>
@@ -53,7 +74,10 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 }
 
 const mockdata = [
-  { icon: IconHome2, label: 'Главная' },
+  { icon: IconHome2, label: "Главная" },
+  { icon: IconSearch, label: "Поиск" },
+  { icon: IconBook, label: "Работы" },
+  { icon: IconPencil, label: "Мои работы" },
 ];
 
 export default function Header() {
@@ -69,25 +93,22 @@ export default function Header() {
   ));
 
   return (
-    <BackgroundImage
-        src="../assets/1.png"
-        radius="xs"
-      >
     <Navbar height={780} width={{ base: 80 }} p="md">
-      <Center>
+      {/* <Center>
         <MantineLogo type="mark" size={30} />
-      </Center>
+      </Center> */}
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
           {links}
         </Stack>
       </Navbar.Section>
+
       <Navbar.Section>
         <Stack justify="center" spacing={0}>
           <NavbarLink icon={IconSettings} label="Настройки" />
           <NavbarLink icon={IconLogout} label="Выход" />
         </Stack>
       </Navbar.Section>
-    </Navbar></BackgroundImage>
+    </Navbar>
   );
 }
